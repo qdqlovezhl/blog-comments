@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub留言板</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+    <style>
+        .message-board { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .message { border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; margin-bottom: 16px; }
+        textarea { width: 100%; min-height: 100px; padding: 8px; border: 1px solid #d1d5da; }
+        button { background: #2ea44f; color: white; border: none; padding: 8px 16px; border-radius: 6px; }
+    </style>
+</head>
+<body class="markdown-body">
+    <div class="message-board">
+        <h1>留言板</h1>
+        <div id="messageForm">
+            <input type="text" id="username" placeholder="您的昵称" required>
+            <textarea id="content" placeholder="支持Markdown语法..." required></textarea>
+            <button id="submitBtn">发布留言</button>
+        </div>
+        <div id="messages"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
