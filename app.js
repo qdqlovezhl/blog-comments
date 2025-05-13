@@ -1,4 +1,3 @@
-// 配置区（需用户修改）
 const CONFIG = {
     repoOwner: 'qdqlovezhl',
     repoName: 'blog-comments',
@@ -24,11 +23,11 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
 
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${qdqlovezhl}/${blog-comments}/issues`,
+            `https://api.github.com/repos/${CONFIG.repoOwner}/${CONFIG.repoName}/issues`,
             {
                 method: 'POST',
                 headers: {
-                    'Authorization': `token ${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}`,
+                    'Authorization': `token ${CONFIG.token}`,
                     'Accept': 'application/vnd.github.v3+json',
                     'Content-Type': 'application/json'
                 },
@@ -52,8 +51,8 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
 async function loadMessages() {
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${qdqlovezhl}/${blog-comments}/issues?state=open`,
-            { headers: { 'Authorization': `token ${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}` } }
+            `https://api.github.com/repos/${CONFIG.repoOwner}/${CONFIG.repoName}/issues?state=open`,
+            { headers: { 'Authorization': `token ${CONFIG.token}` } }
         );
         const issues = await response.json();
         
@@ -76,11 +75,11 @@ window.deleteMessage = async (issueNumber) => {
     
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${qdqlovezhl}/${blog-comments}/issues/${issueNumber}`,
+            `https://api.github.com/repos/${CONFIG.repoOwner}/${CONFIG.repoName}/issues/${issueNumber}`,
             {
                 method: 'PATCH',
                 headers: {
-                    'Authorization': `token ${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}`,
+                    'Authorization': `token ${CONFIG.token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ state: 'closed' })
